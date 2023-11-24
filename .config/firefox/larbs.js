@@ -45,3 +45,6 @@ user_pref("identity.fxaccounts.enabled", false);
 
 // Fix the issue where right mouse button instantly clicks
 user_pref("ui.context_menus.after_mouseup", true);
+
+// Disable extension signing requirement
+user_pref("xpinstall.signatures.required", false);
