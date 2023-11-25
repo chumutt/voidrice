@@ -8,6 +8,9 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
+# Adds `~/.config/emacs/bin` to $PATH (DOOM Emacs)
+export PATH="$PATH:${$(find $HOME/.config/emacs/bin -type d -printf %p:)%%:}"
+
 unsetopt PROMPT_SP
 
 # Default programs:
@@ -47,6 +50,8 @@ export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export ROSWELL_HOME="$XDG_DATA_HOME/roswell"
+export COOKIECUTTER_CONFIG="$XDG_CONFIG_HOME/cookiecutter/cookiecutter.yaml"
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"
