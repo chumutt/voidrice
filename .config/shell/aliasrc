@@ -58,7 +58,15 @@ alias \
 	lf="lfub" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport" \
+	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
+
+alias \
+	dooms="doom sync" \
+	doomsp="doom sync -p" \
+	doomb="doom build" \
+	doomc="doom clean" \
+	doomp="doom purge" \
+	doomu="doom upgrade" \
 
 alias \
 #	musescore="mscore" \
@@ -68,12 +76,6 @@ alias \
 	ezo="emacsclient -c" \
 	exz="exec zsh" \
 	vm="sudo virt-manager && exit" \
-	dooms="doom sync" \
-	doomsp="doom sync -p" \
-	doomb="doom build" \
-	doomc="doom clean" \
-	doomp="doom purge" \
-	doomu="doom upgrade" \
     neofetch="hyfetch" \
 	lgc="looking-glass-client" \
 	screm="scream -i virbr0" \
