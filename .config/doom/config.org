@@ -695,10 +695,11 @@ Subject to change as projects roll in and out of my purview.
 
 *** Visual Changes
 **** Font
-I like the look of Doom Emacs, so I keep this as default.
-#+begin_example
-(setq doom-font (font-spec :family "Fira Mono" :size 12))
-#+end_example
+
+#+begin_src elisp
+(setq doom-font (font-spec :size 12))
+#+end_src
+
 **** Alpha background tranparency function :function:
 
 Requires a compositor.
