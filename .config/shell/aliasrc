@@ -77,8 +77,7 @@ alias \
 	lgc="looking-glass-client" \
 	screm="scream -i virbr0" \
 	chumacs="emacs --profile chumacs" \
-	parrot="curl parrot.live" \
-	vcv="exec ~/.local/share/VCV/Rack2Pro/Rack"
+	parrot="curl parrot.live"
 
 # old
 # musescore="mscore" \
