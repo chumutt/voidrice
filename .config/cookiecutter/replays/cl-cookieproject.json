@@ -1,0 +1,31 @@
+{
+  "cookiecutter": {
+    "project_name": "clagitsc",
+    "repo_name": "clagitsc",
+    "description": "keyboard exercises from david s. touretzky's book on common lisp",
+    "version": "0.0.1",
+    "year": "2023",
+    "author": "Chu the Pup",
+    "email": "chufilthymutt@gmail.com",
+    "site": "https://dogboner.xyz",
+    "username": "lain",
+    "licence": "GNU GPL-3.0",
+    "dist_name": "org.chu.",
+    "_template": "cl-cookieproject",
+    "_output_dir": "/home/chu/.local/share/roswell/local-projects/chus",
+    "_repo_dir": "/home/chu/.config/cookiecutter/cookiecutters/cl-cookieproject"
+  },
+  "_cookiecutter": {
+    "project_name": "cookie-lisp-project",
+    "repo_name": "{{ cookiecutter.project_name }}",
+    "description": "",
+    "version": "0.0.1",
+    "year": 2023,
+    "author": "Chu the Pup",
+    "email": "chufilthymutt@gmail.com",
+    "site": "https://dogboner.xyz",
+    "username": "lain",
+    "licence": "GNU GPL-3.0",
+    "dist_name": "org.chu."
+  }
+}
