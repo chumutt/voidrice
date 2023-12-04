@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+# default options '-c copy'
+# example usage:
+# ffmpeg-batch-convert.sh flac mp3 /path/to/files /path/to/dest '-ab 320k'
+
+# srcExt=$1
+# destExt=$2
+# srcDir=$3
+# destDir=$4
+# opts=$5
+
+# for i in "$srcDir"/*.$srcExt; do
+
+#     basePath=${i%.*}
+#     baseName=${basePath##*/}
+
+#     ffmpeg -i "$i" -c copy $opts "$destDir"/"$baseName"."$destExt"
+
+# done
+
+# echo "conversion from ${srcExt} to ${destExt} complete"
+srcExt=$1
+destExt=$2
+opts=$3
+for i in *.$srcExt; do ffmpeg -i "$i" -c copy $opts "${i%.*}.$destExt"; done; echo "done"
