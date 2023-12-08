@@ -69,17 +69,14 @@ alias \
 	doomu="doom upgrade"
 
 alias \
+	chumacs="emacs --profile chumacs" \
 	ez="emacsclient -nc && exit" \
-	ezo="emacsclient -c" \
+	ezo="emacsclient -c"
+
+alias \
 	exz="exec zsh" \
 	vm="sudo virt-manager && exit" \
-    neofetch="hyfetch" \
+    	neofetch="hyfetch" \
 	lgc="looking-glass-client" \
 	screm="scream -i virbr0" \
-	chumacs="emacs --profile chumacs" \
 	parrot="curl parrot.live"
-
-# old
-# musescore="mscore" \
-# ms="mscore" \
-# otdk="otd loadsettings $XDG_CONFIG_HOME}/OpenTabletDriver/Settings/huion-kamvas-13.json ; otd applypreset huion-kamvas-13" \
