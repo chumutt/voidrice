@@ -76,7 +76,7 @@ alias \
 alias \
 	exz="exec zsh" \
 	vm="sudo virt-manager && exit" \
+	screm="scream -i virbr0" \
     	neofetch="hyfetch" \
 	lgc="looking-glass-client" \
-	screm="scream -i virbr0" \
 	parrot="curl parrot.live"
