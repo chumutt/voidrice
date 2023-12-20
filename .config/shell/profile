@@ -17,7 +17,7 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="st"
 export TERMINAL_PROG="st"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 
 # Change the default crypto/weather monitor sites.
 # export CRYPTOURL="rate.sx"
@@ -67,9 +67,8 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 export GTK_THEME=Adwaita:dark
-export GTK2_RC_FILES="/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc"
-export QT_QPA_PLATFORMTHEME="gtk2" # Have QT use gtk2 theme.
-export QT_STYLE_OVERRIDE=adwaita-dark
+export GTK_USE_PORTAL=1 # have GTK use KDE file dialogs for most applications (requires xdg-desktop-protal and xdg-desktop-portal-kde)
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export MOZ_USE_XINPUT2="1" # Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D" # May have to install wmname
 export _JAVA_AWT_WM_NONREPARENTING=1 # Fix for Java applications in dwm
