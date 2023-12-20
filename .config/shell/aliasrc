@@ -6,17 +6,16 @@
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
-[ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
-
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
+for command in mount umount sv pacman updatedb su shutdown poweroff reboot; do
 	alias $command="sudo $command"
-done; unset command
+done
+unset command
 
 se() {
-	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
-	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
-	;}
+	cd ~/.local/bin
+	$EDITOR $(fzf)
+}
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
@@ -24,12 +23,11 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	bc="bc -ql" \
-	rsync="rsync -vrPlu" \
 	mkd="mkdir -pv" \
 	yt="yt-dlp --embed-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
-	ytt="yt --skip-download --write-thumbnail" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
+	lsblk="lsblk --output NAME,LABEL,TRAN,TYPE,SIZE,FSUSED,FSTYPE,MOUNTPOINT"
 
 # Colorize commands when possible.
 alias \
@@ -61,22 +59,21 @@ alias \
 	weath="less -S ${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
 
 alias \
+	ez="emacsclient -nc && exit" \
+	ezo="emacsclient -c" \
+	exz="exec zsh" \
+	vm="sudo virt-manager && exit" \
 	dooms="doom sync" \
 	doomsp="doom sync -p" \
 	doomb="doom build" \
 	doomc="doom clean" \
 	doomp="doom purge" \
-	doomu="doom upgrade"
-
-alias \
-	chumacs="emacs --profile chumacs" \
-	ez="emacsclient -nc && exit" \
-	ezo="emacsclient -c"
-
-alias \
-	exz="exec zsh" \
-	vm="sudo virt-manager && exit" \
-	screm="scream -i virbr0" \
-    	neofetch="hyfetch" \
+	doomu="doom upgrade" \
+    neofetch="hyfetch" \
+	musescore="mscore" \
+	ms="mscore" \
 	lgc="looking-glass-client" \
-	parrot="curl parrot.live"
+	screm="scream -i virbr0" \
+	chumacs="emacs --profile chumacs" \
+	parrot="curl parrot.live" \
+	otdk="otd loadsettings $XDG_CONFIG_HOME}/OpenTabletDriver/Settings/huion-kamvas-13.json ; otd applypreset huion-kamvas-13"
