@@ -9,7 +9,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment t
 emacs --daemon &
 xdotool mousemove 960 540 & # move mouse to my preferred monitor before starting gui programs
 
-autostart="mpd xcompmgr dunst unclutter pipewire remapd rs keepassxc"
+autostart="mpd xcompmgr dunst unclutter pipewire remapd"
 
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &
