@@ -21,11 +21,11 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       company           ; the ultimate code completion backend
-       helm              ; the *other* search engine for love and life
+       ;;company           ; the ultimate code completion backend
+       ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
-       (ivy
-        +prescient)      ; a search engine for love and life
+       ;;(ivy
+       ;; +prescient)      ; a search engine for love and life
        vertico           ; the search engine of the future
 
        :ui
@@ -61,10 +61,9 @@
         +everywhere)     ; come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format
-        +onsave)         ; automated prettiness
+       format
        ;;god               ; run Emacs commands without modifier keys
-       ;lispy             ; vim for lisp, for people who don't like vim
+       ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;parinfer          ; turn lisp into python, sort of
@@ -86,9 +85,9 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       syntax              ; tasing you for every semicolon you forget
-       ;;(spell
-       ;; +flyspell)         ; tasing you for misspelling mispelling
+       (syntax +flyspell)              ; tasing you for every semicolon you forget
+       (spell
+        +flyspell)         ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
        :tools
@@ -148,8 +147,8 @@
        ;;(go
        ;; +lsp            ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       (haskell
-        +lsp)            ; a language that's lazier than I am
+       ;;(haskell
+       ;; +lsp)            ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
@@ -177,11 +176,11 @@
         +gnuplot
         +dragndrop)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
-       plantuml          ; diagrams for confusing people more
+       ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        ;;python            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       racket            ; a DSL for DSLs
+       ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
@@ -191,7 +190,7 @@
        ;; +lsp)            ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;; (scheme
-        ;; +guile)          ; a fully conniving family of lisps
+       ;; +guile)          ; a fully conniving family of lisps
        sh                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
@@ -202,23 +201,23 @@
        ;;zig               ; C, but simpler
 
        :email
-       (mu4e
-        +org
-        +gmail)
+       ;;(mu4e
+       ;; +org
+       ;; +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
 
        :app
        calendar
-       emms
+       ;;emms
        ;;everywhere        ; *leave* Emacs!? You must be joking
-       irc               ; how neckbeards socialize
-       (rss
-        +org)            ; emacs as an RSS reader
-       twitter           ; twitter client https://twitter.com/vnought
+       ;;irc               ; how neckbeards socialize
+       ;;(rss
+       ;; +org)            ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config
        ;;literate
        (default
-         +bindings
-         +smartparens))
+        +bindings
+        +smartparens))
