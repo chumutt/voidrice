@@ -7,7 +7,7 @@
 export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 
 # Adds `~/.config/emacs/bin` to $PATH (DOOM Emacs)
-export PATH="$PATH:$(find $HOME/.config/emacs/bin -type d | paste -sd ':' -)"
+export PATH="$PATH:$(find ~/.config/emacs/bin -type d | paste -sd ':' -)"
 
 unsetopt PROMPT_SP 2>/dev/null
 
