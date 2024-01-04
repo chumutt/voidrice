@@ -10,7 +10,7 @@ emacs --daemon &   # start emacs daemon like this because systemd fucks up emacs
 otd-daemon &       # open tablet driver daemon (systemd no likey)
 # xdotool mousemove 960 540 & # move mouse to preferred monitor before starting gui programs
 
-autostart="mpd picom unclutter dunst pipewire"
+autostart="mpd picom unclutter dunst pipewire redshift"
 
 for program in $autostart; do
 	pidof -s "$program" || "$program" &
