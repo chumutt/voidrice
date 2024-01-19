@@ -894,16 +894,6 @@ from [[https://gergely.polonkai.eu/blog/2014/10/7/rounding-numbers-to-n-decimals
                 mult)))))
 #+end_src
 
-*** Firefox fixes
-
-#+begin_src elisp
-;; (setq browse-url-firefox-program "/usr/bin/firefox")
-;; (setq browse-url-firefox-arguments "-no-remote")
-;; (setq browse-url-firefox-new-window-is-tab t)
-;; (setq browse-url-generic-program "/usr/bin/firefox")
-;; (setq browse-url-browser-function 'browse-url-generic)
-#+end_src
-
 *** File templates conflict with org-capture templates with type entry #4271 fix
 #+begin_example elisp
 (set-file-template! 'org-mode :ignore t)
