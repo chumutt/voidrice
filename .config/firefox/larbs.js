@@ -47,4 +47,4 @@ user_pref("identity.fxaccounts.enabled", false);
 user_pref("ui.context_menus.after_mouseup", true);
 
 // Disable extension signing requirement
-user_pref("xpinstall.signatures.required", false);
+// user_pref("xpinstall.signatures.required", false);
