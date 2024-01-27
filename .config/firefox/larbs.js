@@ -44,7 +44,7 @@ user_pref("privacy.clearOnShutdown.cache", false);
 user_pref("privacy.clearOnShutdown.sessions", false);
 user_pref("privacy.clearOnShutdown.formdata", false);
 user_pref("privacy.clearOnShutdown.offlineApps", false);
-user_pref("browser.sessionstore.resume_from_crash", false);
+user_pref("browser.sessionstore.resume_from_crash", true);
 user_pref("webgl.disabled", false);
 
 // Enable custom userChrome.js:
