@@ -12,6 +12,7 @@
   - [[#private-configuration][private configuration]]
   - [[#abbrev-mode][abbrev mode]]
   - [[#dictionary][dictionary]]
+  - [[#vale][vale]]
   - [[#palimpsest-prog-mode-hook][palimpsest prog mode hook]]
   - [[#vulpea-autosync-org-roam-todos-from-dailies][vulpea autosync org roam todos from dailies]]
   - [[#auth-source-save-behavior][auth source save behavior]]
@@ -34,6 +35,7 @@
   - [[#common-lisp-find-file-fix-for-roswell-compatibility][common lisp find file fix for roswell compatibility]]
   - [[#roswell-lisp-sly-helper][roswell lisp sly helper]]
   - [[#common-lisp-snippets-for-yasnippets-require][common lisp snippets for yasnippets (require)]]
+  - [[#dired-rsync][dired-rsync]]
 - [[#works-cited][Works Cited]]
   - [[#rounding-numbers-to-n-decimals-inemacs-by-gergely-polonkai][Rounding numbers to N decimals in Emacs by Gergely Polonkai]]
   - [[#httpsbloglazkaniiopostsbookmark-with-org-capture][https://blog.lazkani.io/posts/bookmark-with-org-capture/]]
@@ -133,7 +135,6 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 #+end_example
 
 * config
-
 ** private configuration
 
 #+begin_src elisp
@@ -152,6 +153,19 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 
 #+begin_src elisp
 (setq ispell-alternate-dictionary "/usr/share/dict")
+#+end_src
+
+** vale
+
+#+begin_src elisp
+(add-hook! 'text-mode #'flymake-vale-load)
+(add-hook! 'latex-mode-hook #'flymake-vale-load)
+(add-hook! 'org-mode #'flymake-vale-load)
+(add-hook! 'markdown-mode #'flymake-vale-load)
+(add-hook! 'message-mode #'flymake-vale-load)
+(use-package! flymake-vale
+  :config
+  (setq flymake-vale-program "/usr/bin/vale"))
 #+end_src
 
 ** palimpsest prog mode hook
@@ -210,7 +224,6 @@ Make sure you know where your Emacs cache backup directory actually resides befo
 #+end_src
 
 ** Org-Mode
-
 *** org TODO state hiding
 
 Write TODO state changes into LOGBOOK drawer. [[https://stackoverflow.com/a/63798475][Thanks, LeeRuns (stackoverflow.com)]].
@@ -474,9 +487,11 @@ Citation Style Language (CSL) files can be used with org-cite.
 
 Added automatically when images are attached. Does not affect actual image dimensions, only how they are shown initially within Emacs.
 
-#+begin_src elisp
+#+begin_example elisp
 (setq org-image-actual-width 500)
-#+end_src
+#+end_example
+
+Disabled for now due to academic work with LaTeX.
 
 *** LaTeX classes for org mode with org-latex-classes
 
@@ -497,7 +512,7 @@ Helpful when editing LaTeX documents.
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 #+end_src
 
-*** A not-stupid way to archive sections of Org documents
+*** A not-stupid way to archive sections of Org documents: hierarchical subtree archival!
 
 By default, using the Org mode archive function 'org-archive-subtree-default' does not capture the higher-level headings a particular subheading was sitting under when it was archived, which makes a mess of the archive file that gets created. Use this instead!
 
@@ -624,12 +639,11 @@ By default, using the Org mode archive function 'org-archive-subtree-default' do
   (org-archive-subtree-hierarchical))
 #+end_src
 
-**** Change the default Org archive function to be the not-stupid one
+**** change the default org archive function to be the not-stupid one
 
 #+begin_src elisp
 (setq org-archive-default-command 'org-archive-subtree-hierarchical)
 #+end_src
-
 *** Custom Org Agenda files
 
 Subject to change as projects roll in and out of my purview.
@@ -660,7 +674,6 @@ Subject to change as projects roll in and out of my purview.
   (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
    ( "C-c M-a" . org-tanglesync-process-buffer-automatic)))
 #+end_src
-
 ** Visual Changes
 
 *** Font
@@ -911,7 +924,27 @@ You may also wish to [[id:24408296-5370-4dbf-a52f-f1afe865ceb5][disable Emacs lo
 #+begin_src elisp
 (require 'common-lisp-snippets)
 #+end_src
+** dired-rsync :rsync:
+*** dired-rsync-skip-newer custom rsync function :custom:rsync:
+#+begin_src elisp
+(defun dired-rsync-skip-newer (dest)
+  "Asynchronously copy files in dired to `DEST' using rsync
+set to resolve symlinks, skip files that are newer in `DEST',
+and to run in archive mode."
+  (interactive
+   (list (read-file-name "rsync to: " (dired-dwim-target-directory)
+                         nil nil nil 'file-directory-p)))
+  (let ((dired-rsync-options "-aLuz --info=progress2"))
+    (dired-rsync dest)))
+#+end_src
 
+#+RESULTS:
+: dired-rsync-skip-newer
+
+*** dired-rsync map :binds:custom:rsync:
+#+begin_src elisp
+(map! "C-c C-d C-r" #'dired-rsync-skip-newer)
+#+end_src
 * Works Cited
 ** [[https://gergely.polonkai.eu/blog/2014/10/7/rounding-numbers-to-n-decimals-in-emacs.html][Rounding numbers to N decimals in Emacs]] by Gergely Polonkai
 ** https://blog.lazkani.io/posts/bookmark-with-org-capture/

@@ -69,3 +69,5 @@
 (package! palimpsest-mode)
 
 (package! vulpea)
+
+(package! nginx-mode)
