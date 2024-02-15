@@ -12,7 +12,6 @@
   - [[#private-configuration][private configuration]]
   - [[#abbrev-mode][abbrev mode]]
   - [[#dictionary][dictionary]]
-  - [[#vale][vale]]
   - [[#palimpsest-prog-mode-hook][palimpsest prog mode hook]]
   - [[#vulpea-autosync-org-roam-todos-from-dailies][vulpea autosync org roam todos from dailies]]
   - [[#auth-source-save-behavior][auth source save behavior]]
