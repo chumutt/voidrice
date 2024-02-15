@@ -155,19 +155,6 @@ Some functionality uses this to identify you, e.g. GPG configuration, email clie
 (setq ispell-alternate-dictionary "/usr/share/dict")
 #+end_src
 
-** vale
-
-#+begin_src elisp
-(add-hook! 'text-mode #'flymake-vale-load)
-(add-hook! 'latex-mode-hook #'flymake-vale-load)
-(add-hook! 'org-mode #'flymake-vale-load)
-(add-hook! 'markdown-mode #'flymake-vale-load)
-(add-hook! 'message-mode #'flymake-vale-load)
-(use-package! flymake-vale
-  :config
-  (setq flymake-vale-program "/usr/bin/vale"))
-#+end_src
-
 ** palimpsest prog mode hook
 
 #+begin_src elisp
@@ -739,23 +726,6 @@ I don't know how to do this yet.
 #+begin_src elisp
 (with-eval-after-load 'random-splash-image
   (random-splash-image-set))
-#+end_src
-
-** ripgrep "rg" fast search to handle projectile project files
-
-Use the faster searcher to handle project files: ripgrep "rg"
-
-#+begin_src elisp
-(when (and (not (executable-find "fd"))
-           (executable-find "rg"))
-  (setq projectile-generic-command
-        (let ((rg-cmd ""))
-          (dolist (dir projectile-globally-ignored-directories)
-            (setq rg-cmd (format "%s --glob '!%s'" rg-cmd dir)))
-          (setq rg-ignorefile
-                (concat "--ignore-file" " "
-                        (expand-file-name "rg_ignore" user-emacs-directory)))
-          (concat "rg -0 --files --color=never --hidden" rg-cmd " " rg-ignorefile))))
 #+end_src
 
 ** Enable active presence on Discord for Emacs
