@@ -3,46 +3,6 @@
 #+DESCRIPTION: Chu's Literate Doom GNU Emacs configuration
 #+PROPERTY: header-args :tangle yes
 #+auto_tangle: t
-* table of contents :toc:
-- [[#preamble][Preamble]]
-  - [[#org-mode-babel-tangle-setup][Org-mode babel tangle setup]]
-  - [[#usage-of-quote-and-example-blocks][Usage of quote and example blocks]]
-- [[#doom-emacs-documentation][DOOM Emacs Documentation]]
-- [[#config][config]]
-  - [[#private-configuration][private configuration]]
-  - [[#abbrev-mode][abbrev mode]]
-  - [[#dictionary][dictionary]]
-  - [[#palimpsest-prog-mode-hook][palimpsest prog mode hook]]
-  - [[#vulpea-autosync-org-roam-todos-from-dailies][vulpea autosync org roam todos from dailies]]
-  - [[#auth-source-save-behavior][auth source save behavior]]
-  - [[#emms][EMMS]]
-  - [[#irc-erc][IRC (ERC)]]
-  - [[#dired-director-editor-emacs-file-manager-settings][Dired director editor (Emacs file manager) settings]]
-  - [[#trash-instead-of-delete][Trash instead of delete]]
-  - [[#org-mode][Org-Mode]]
-  - [[#visual-changes][Visual Changes]]
-  - [[#ripgrep-rg-fast-search-to-handle-projectile-project-files][ripgrep "rg" fast search to handle projectile project files]]
-  - [[#enable-active-presence-on-discord-for-emacs][Enable active presence on Discord for Emacs]]
-  - [[#epg-letting-emacs-query-for-gpg-passwords][EPG: Letting Emacs query for GPG passwords]]
-  - [[#tramp-ftp-doesnt-read-my-authinfogpg][Tramp FTP doesn't read my ~/.authinfo.gpg]]
-  - [[#achievements-in-emacs][Achievements in Emacs]]
-  - [[#round-numbers-to-n-decimals-in-elisp][Round numbers to N decimals in Elisp]]
-  - [[#alpha-background-transparency-function][Alpha background transparency function]]
-  - [[#fix-alpha-transparency-issues][Fix alpha transparency issues]]
-  - [[#inhibit-xresources-being-loaded-by-emacs][Inhibit Xresources being loaded by Emacs]]
-  - [[#literate-calc-mode][literate calc mode]]
-  - [[#common-lisp-find-file-fix-for-roswell-compatibility][common lisp find file fix for roswell compatibility]]
-  - [[#roswell-lisp-sly-helper][roswell lisp sly helper]]
-  - [[#common-lisp-snippets-for-yasnippets-require][common lisp snippets for yasnippets (require)]]
-  - [[#dired-rsync][dired-rsync]]
-- [[#works-cited][Works Cited]]
-  - [[#rounding-numbers-to-n-decimals-inemacs-by-gergely-polonkai][Rounding numbers to N decimals in Emacs by Gergely Polonkai]]
-  - [[#httpsbloglazkaniiopostsbookmark-with-org-capture][https://blog.lazkani.io/posts/bookmark-with-org-capture/]]
-  - [[#httpsorgmodeorgmanualcapture-templateshtml][https://orgmode.org/manual/Capture-templates.html]]
-  - [[#doom-emacs-literate-config][DOOM Emacs Literate Config]]
-  - [[#alphapapaunpackagedel-a-collection-of-useful-emacs-lisp-code-that-isnt-substantial-enough-to-be-packaged][alphapapa/unpackaged.el: A collection of useful Emacs Lisp code that isn't substantial enough to be packaged]]
-  - [[#org-archive-subtree-hierarchicalel-v02][org-archive-subtree-hierarchical.el v0.2]]
-
 * Preamble
 
 Here's the deets:
