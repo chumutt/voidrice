@@ -845,7 +845,7 @@ You may also wish to [[id:24408296-5370-4dbf-a52f-f1afe865ceb5][disable Emacs lo
 
 #+begin_src elisp
 (load! (expand-file-name "~/.local/share/roswell/helper.el"))
-(setq inferior-lisp-program "ros -Q run")
+(setq inferior-lisp-program "ros dynamic-space-size=8000 -Q run")
 #+end_src
 
 ** common lisp snippets for yasnippets (require)
