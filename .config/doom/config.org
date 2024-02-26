@@ -3,6 +3,47 @@
 #+DESCRIPTION: Chu's Literate Doom GNU Emacs configuration
 #+PROPERTY: header-args :tangle yes
 #+auto_tangle: t
+* table of contents :toc:
+- [[#preamble][Preamble]]
+  - [[#org-mode-babel-tangle-setup][Org-mode babel tangle setup]]
+  - [[#usage-of-quote-and-example-blocks][Usage of quote and example blocks]]
+- [[#doom-emacs-documentation][DOOM Emacs Documentation]]
+- [[#config][config]]
+  - [[#private-configuration][private configuration]]
+  - [[#abbrev-mode][abbrev mode]]
+  - [[#dictionary][dictionary]]
+  - [[#palimpsest-prog-mode-hook][palimpsest prog mode hook]]
+  - [[#vulpea-autosync-org-roam-todos-from-dailies][vulpea autosync org roam todos from dailies]]
+  - [[#auth-source-save-behavior][auth source save behavior]]
+  - [[#emms][EMMS]]
+  - [[#irc-erc][IRC (ERC)]]
+  - [[#dired-director-editor-emacs-file-manager-settings][Dired director editor (Emacs file manager) settings]]
+  - [[#trash-instead-of-delete][Trash instead of delete]]
+  - [[#org-mode][Org-Mode]]
+  - [[#visual-changes][Visual Changes]]
+  - [[#ripgrep-rg-fast-search-to-handle-projectile-project-files][ripgrep "rg" fast search to handle projectile project files]]
+  - [[#enable-active-presence-on-discord-for-emacs][Enable active presence on Discord for Emacs]]
+  - [[#epg-letting-emacs-query-for-gpg-passwords][EPG: Letting Emacs query for GPG passwords]]
+  - [[#tramp-ftp-doesnt-read-my-authinfogpg][Tramp FTP doesn't read my ~/.authinfo.gpg]]
+  - [[#achievements-in-emacs][Achievements in Emacs]]
+  - [[#round-numbers-to-n-decimals-in-elisp][Round numbers to N decimals in Elisp]]
+  - [[#alpha-background-transparency-function][Alpha background transparency function]]
+  - [[#fix-alpha-transparency-issues][Fix alpha transparency issues]]
+  - [[#inhibit-xresources-being-loaded-by-emacs][Inhibit Xresources being loaded by Emacs]]
+  - [[#literate-calc-mode][literate calc mode]]
+  - [[#common-lisp-find-file-fix-for-roswell-compatibility][common lisp find file fix for roswell compatibility]]
+  - [[#roswell-lisp-sly-helper][roswell lisp sly helper]]
+  - [[#common-lisp-snippets-for-yasnippets-require][common lisp snippets for yasnippets (require)]]
+  - [[#sly-completion-fix][sly completion fix]]
+  - [[#dired-rsync][dired-rsync]]
+- [[#works-cited][Works Cited]]
+  - [[#rounding-numbers-to-n-decimals-inemacs-by-gergely-polonkai][Rounding numbers to N decimals in Emacs by Gergely Polonkai]]
+  - [[#httpsbloglazkaniiopostsbookmark-with-org-capture][https://blog.lazkani.io/posts/bookmark-with-org-capture/]]
+  - [[#httpsorgmodeorgmanualcapture-templateshtml][https://orgmode.org/manual/Capture-templates.html]]
+  - [[#doom-emacs-literate-config][DOOM Emacs Literate Config]]
+  - [[#alphapapaunpackagedel-a-collection-of-useful-emacs-lisp-code-that-isnt-substantial-enough-to-be-packaged][alphapapa/unpackaged.el: A collection of useful Emacs Lisp code that isn't substantial enough to be packaged]]
+  - [[#org-archive-subtree-hierarchicalel-v02][org-archive-subtree-hierarchical.el v0.2]]
+
 * Preamble
 
 Here's the deets:
@@ -592,20 +633,7 @@ By default, using the Org mode archive function 'org-archive-subtree-default' do
 #+end_src
 *** Custom Org Agenda files
 
-Subject to change as projects roll in and out of my purview.
-
-#+begin_src elisp
-(with-eval-after-load 'org
-  (setq org-agenda-files '("~/nextcloud/documents/org/roam/20221004221829-todo.org"
-                           "~/nextcloud/documents/org/roam/20220823133453-precalculus_algebra.org"
-                           "~/nextcloud/documents/org/roam/20220826102101-chem_1110.org"
-                           "~/nextcloud/documents/org/roam/20220726210346-important_dates.org"
-                           "~/nextcloud/documents/org/roam/20221004222235-notes.org"
-                           "~/nextcloud/documents/org/roam/20221004222230-journal.org"
-                           "~/nextcloud/documents/org/roam/20221004222226-projects.org"
-                           "~/nextcloud/documents/org/roam/20220822103202-engl_1020.org"
-                           "~/nextcloud/documents/org/roam/20221002161620-my_conlang.org")))
-#+end_src
+Want files tracked in your agenda? Use the ~C-c [~ keybinding in each file to add them to your custom.el to be tracked via your agenda.
 
 *** Org Tanglesync
 
@@ -620,6 +648,7 @@ Subject to change as projects roll in and out of my purview.
   (( "C-c M-i" . org-tanglesync-process-buffer-interactive)
    ( "C-c M-a" . org-tanglesync-process-buffer-automatic)))
 #+end_src
+
 ** Visual Changes
 
 *** Font
@@ -660,6 +689,8 @@ For the plugin 'random-splash-image' which displays a random splash image on eac
 
 **** Tell random-splash-image what directory to look for images in.
 
+Example:
+
 #+begin_example elisp
 (setq random-splash-image-dir
       (concat
@@ -685,6 +716,23 @@ I don't know how to do this yet.
 #+begin_src elisp
 (with-eval-after-load 'random-splash-image
   (random-splash-image-set))
+#+end_src
+
+** ripgrep "rg" fast search to handle projectile project files
+
+Use the faster searcher to handle project files: ripgrep "rg"
+
+#+begin_src elisp
+(when (and (not (executable-find "fd"))
+           (executable-find "rg"))
+  (setq projectile-generic-command
+        (let ((rg-cmd ""))
+          (dolist (dir projectile-globally-ignored-directories)
+            (setq rg-cmd (format "%s --glob '!%s'" rg-cmd dir)))
+          (setq rg-ignorefile
+                (concat "--ignore-file" " "
+                        (expand-file-name "rg_ignore" user-emacs-directory)))
+          (concat "rg -0 --files --color=never --hidden" rg-cmd " " rg-ignorefile))))
 #+end_src
 
 ** Enable active presence on Discord for Emacs
@@ -765,7 +813,7 @@ Requires a compositor.
 
 #+begin_src elisp
 (defun toggle-transparency ()
-  "Toggle transparency."
+  "Toggle transparency. Might need to be called a couple of times in a row to work."
   (interactive)
   (let ((alpha (frame-parameter nil 'alpha)))
     (if (eq
@@ -853,6 +901,35 @@ You may also wish to [[id:24408296-5370-4dbf-a52f-f1afe865ceb5][disable Emacs lo
 #+begin_src elisp
 (require 'common-lisp-snippets)
 #+end_src
+** sly completion fix :lisp:
+:PROPERTIES:
+:ID:       84ecc951-9b0b-436c-a260-40a0b02b5b63
+:END:
+#+begin_src elisp
+(after! orderless
+  (setq-hook! 'sly-mode-hook completion-styles '(basic partial-completion emacs22)))
+
+(setq sly-mrepl-history-file-name (concat doom-cache-dir "sly-mrepl-history")
+        sly-kill-without-query-p t
+        sly-net-coding-system 'utf-8-unix
+        ;; Doom defaults to non-fuzzy search, because it is faster and more
+        ;; precise (but requires more keystrokes). Change this to
+        ;; `sly-flex-completions' for fuzzy completion
+        sly-complete-symbol-function 'sly-simple-completions)
+        ;; precise (but requires more keystrokes), since it causes showing all
+        ;; symbols in the cases of using vertico/helm (without +fuzzy) (see
+        ;; https://github.com/joaotavora/sly/issues/535) for :completion, it
+        ;; changes it to `sly-flex-completions', which is a fuzzy completion.
+        sly-complete-symbol-function (if (or (modulep! :completion vertico)
+                                             (and (modulep! :completion helm)
+                                                  (not (modulep! :completion helm +fuzzy))))
+                                         'sly-flex-completions
+                                       'sly-simple-completions)
+#+end_src
+
+#+RESULTS:
+: sly-flex-completions
+
 ** dired-rsync :rsync:
 *** dired-rsync-skip-newer custom rsync function :custom:rsync:
 #+begin_src elisp

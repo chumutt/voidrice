@@ -70,4 +70,15 @@
 
 (package! vulpea)
 
+(package! flymake-vale
+  :recipe (:host github :repo "tpeacock19/flymake-vale"))
+
+(package! org-heatmap
+  :recipe (:host github :repo "Elilif/org-heatmap"))
+
+(package! flycheck-hl-todo)
+
+(package! icsorg
+  :recipe (:host github :repo "theophilusx/icsorg"))
+
 (package! nginx-mode)

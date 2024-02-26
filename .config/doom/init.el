@@ -21,12 +21,16 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       ;;company           ; the ultimate code completion backend
+       (company
+        +childframe
+        +tng)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;(ivy
        ;; +prescient)      ; a search engine for love and life
-       vertico           ; the search engine of the future
+       (vertico
+        +childframe
+        +icons)           ; the search engine of the future
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -66,7 +70,7 @@
        ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
-       ;parinfer          ; turn lisp into python, sort of
+       ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
@@ -122,7 +126,8 @@
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc
-        +lsp)            ; C > C++ == 1
+        +lsp
+        +tree-sitter)            ; C > C++ == 1
        ;;clojure           ; java with a lisp
        common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -146,8 +151,8 @@
        ;;(go
        ;; +lsp            ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       ;;(haskell
-       ;; +lsp)            ; a language that's lazier than I am
+       (haskell
+        +lsp)            ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
@@ -175,11 +180,11 @@
         +gnuplot
         +dragndrop)      ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
-       ;;plantuml          ; diagrams for confusing people more
+       plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        ;;python            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       ;;racket            ; a DSL for DSLs
+       racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
@@ -200,20 +205,20 @@
        ;;zig               ; C, but simpler
 
        :email
-       ;;(mu4e
-       ;; +org
-       ;; +gmail)
+       (mu4e
+        +org
+        +gmail)
        ;;notmuch
        ;;(wanderlust +gmail)
 
        :app
        calendar
-       ;;emms
-       ;;everywhere        ; *leave* Emacs!? You must be joking
-       ;;irc               ; how neckbeards socialize
-       ;;(rss
-       ;; +org)            ; emacs as an RSS reader
-       ;;twitter           ; twitter client https://twitter.com/vnought
+       emms
+       everywhere        ; *leave* Emacs!? You must be joking
+       irc               ; how neckbeards socialize
+       (rss
+        +org)            ; emacs as an RSS reader
+       twitter           ; twitter client https://twitter.com/vnought
 
        :config
        literate
