@@ -69,6 +69,7 @@ alias \
 	doomc="doom clean" \
 	doomp="doom purge" \
 	doomu="doom upgrade" \
+	rosr="rlwrap ros run" \
     neofetch="hyfetch" \
 	musescore="mscore" \
 	ms="mscore" \
