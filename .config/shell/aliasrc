@@ -70,11 +70,10 @@ alias \
 	doomp="doom purge" \
 	doomu="doom upgrade" \
 	rosr="rlwrap ros run" \
-    neofetch="hyfetch" \
+    	neofetch="hyfetch" \
 	musescore="mscore" \
 	ms="mscore" \
 	lgc="looking-glass-client" \
 	screm="scream -i virbr0" \
-	chumacs="emacs --profile chumacs" \
 	parrot="curl parrot.live" \
 	otdk="otd loadsettings $XDG_CONFIG_HOME}/OpenTabletDriver/Settings/huion-kamvas-13.json ; otd applypreset huion-kamvas-13"
