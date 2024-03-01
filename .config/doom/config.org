@@ -36,6 +36,7 @@
   - [[#common-lisp-snippets-for-yasnippets-require][common lisp snippets for yasnippets (require)]]
   - [[#sly-completion-fix][sly completion fix]]
   - [[#dired-rsync][dired-rsync]]
+  - [[#lispy-mode-lispyville-configuration][lispy-mode (lispyville) configuration]]
 - [[#works-cited][Works Cited]]
   - [[#rounding-numbers-to-n-decimals-inemacs-by-gergely-polonkai][Rounding numbers to N decimals in Emacs by Gergely Polonkai]]
   - [[#httpsbloglazkaniiopostsbookmark-with-org-capture][https://blog.lazkani.io/posts/bookmark-with-org-capture/]]
@@ -899,32 +900,17 @@ You may also wish to [[id:24408296-5370-4dbf-a52f-f1afe865ceb5][disable Emacs lo
 ** common lisp snippets for yasnippets (require)
 
 #+begin_src elisp
-(require 'common-lisp-snippets)
+(use-package! 'common-lisp-snippets
+  :defer t)
 #+end_src
+
 ** sly completion fix :lisp:
 :PROPERTIES:
 :ID:       84ecc951-9b0b-436c-a260-40a0b02b5b63
 :END:
 #+begin_src elisp
-(after! orderless
-  (setq-hook! 'sly-mode-hook completion-styles '(basic partial-completion emacs22)))
-
-(setq sly-mrepl-history-file-name (concat doom-cache-dir "sly-mrepl-history")
-        sly-kill-without-query-p t
-        sly-net-coding-system 'utf-8-unix
-        ;; Doom defaults to non-fuzzy search, because it is faster and more
-        ;; precise (but requires more keystrokes). Change this to
-        ;; `sly-flex-completions' for fuzzy completion
-        sly-complete-symbol-function 'sly-simple-completions)
-        ;; precise (but requires more keystrokes), since it causes showing all
-        ;; symbols in the cases of using vertico/helm (without +fuzzy) (see
-        ;; https://github.com/joaotavora/sly/issues/535) for :completion, it
-        ;; changes it to `sly-flex-completions', which is a fuzzy completion.
-        sly-complete-symbol-function (if (or (modulep! :completion vertico)
-                                             (and (modulep! :completion helm)
-                                                  (not (modulep! :completion helm +fuzzy))))
-                                         'sly-flex-completions
-                                       'sly-simple-completions)
+(after! sly
+  (setq sly-complete-symbol-function 'sly-flex-completions))
 #+end_src
 
 #+RESULTS:
@@ -951,6 +937,22 @@ and to run in archive mode."
 #+begin_src elisp
 (map! "C-c C-d C-r" #'dired-rsync-skip-newer)
 #+end_src
+
+** lispy-mode (lispyville) configuration :lisp:parens:lispyville:lispy:
+#+begin_src elisp
+(use-package! lispy
+  :hook ((lisp-mode . lispy-mode)
+         ;;(emacs-lisp-mode . lispy-mode)
+         (ielm-mode . lispy-mode)
+         (scheme-mode . lispy-mode)
+         (racket-mode . lispy-mode)
+         (hy-mode . lispy-mode)
+         (lfe-mode . lispy-mode)
+         (dune-mode . lispy-mode)
+         (clojure-mode . lispy-mode)
+         (fennel-mode . lispy-mode)))
+#+end_src
+
 * Works Cited
 ** [[https://gergely.polonkai.eu/blog/2014/10/7/rounding-numbers-to-n-decimals-in-emacs.html][Rounding numbers to N decimals in Emacs]] by Gergely Polonkai
 ** https://blog.lazkani.io/posts/bookmark-with-org-capture/
