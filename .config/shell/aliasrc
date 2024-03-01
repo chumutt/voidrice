@@ -62,7 +62,7 @@ alias \
 	ez="emacsclient -nc && exit" \
 	ezo="emacsclient -c" \
 	exz="exec zsh" \
-	vm="sudo virt-manager && exit" \
+	vm="virt-manager && exit" \
 	dooms="doom sync" \
 	doomsp="doom sync -p" \
 	doomb="doom build" \
