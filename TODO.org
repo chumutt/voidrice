@@ -1,0 +1,3 @@
+#+title: Todo
+#+author: chumutt
+* TODO move .config/doom to separate repo and have it get installed as a part of larbs
