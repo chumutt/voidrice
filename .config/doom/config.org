@@ -3,6 +3,7 @@
 #+DESCRIPTION: Chu's Literate Doom GNU Emacs configuration
 #+PROPERTY: header-args :tangle yes
 #+auto_tangle: t
+
 * Preamble
 
 Here's the deets:
@@ -19,8 +20,11 @@ This tells Emacs to automatically tangle (include) all code blocks in this file 
 
 
 ** Usage of quote and example blocks
+:PROPERTIES:
+:ID:       8f9bc104-87a1-4fa4-b624-a5ea64210b8a
+:END:
 
-What I am about to explain is typically done in order to debug the configuration on my end. However, the use of quote and example blocks also serves as a way of offering an on/off switch to certain blocks of "settings" (blocks beginning in "#+begin_something" and ending in "#+end_something").
+What I am about to explain is typically done in order to debug the configuration on my end. However, the use of quote and example blocks also serves as a way of offering an on/off switch to certain blocks of "settings" (blocks beginning in "#+begin_something" and ending in "#+end_something"):
 
 #+begin_quote
 #+begin_example
@@ -28,7 +32,7 @@ What I am about to explain is typically done in order to debug the configuration
 #+end_example
 #+end_quote
 
-or just delete it entirely if you don't want or need the feature / setting.
+...or just delete it entirely if you don't want or need the feature / setting, for example, if you want to disable *[[id:a948faf0-c278-4481-bd1b-c857644a4c90][the active Discord presence support plugin for Emacs that I have turned on by default]]*.
 
 I try to keep the ones seen here (as in, in this configuration) limited to settings saved for reference, debugging, or other posterity purposes, rather than leaving behind a bunch of crud and bug fixes that are no longer necessary.
 
@@ -734,7 +738,7 @@ I don't know how to do this yet.
 in other words, tell Projectile to stop detecting new project directories just because a directory has a Makefile in it. normally you'd want to keep this on, but it doesn't play nice with my particular set up.
 
 #+begin_src elisp
-(setq 'projectile-project-root-functions '(projectile-root-local
+(setq projectile-project-root-functions '(projectile-root-local
                                            projectile-root-marked
                                            projectile-root-bottom-up
                                            projectile-root-top-down
@@ -748,7 +752,7 @@ credit goes to [[https://emacs.stackexchange.com/a/15262][Marcus Riemer]] for fi
 *** disable automatic project detection as a whole
 
 #+begin_example elisp
-(setq 'projectile-project-root-functions nil)
+(setq projectile-project-root-functions nil)
 #+end_example
 
 
@@ -771,11 +775,15 @@ Use the faster searcher to handle project files: ripgrep "rg"
 
 
 ** Enable active presence on Discord for Emacs
+:PROPERTIES:
+:ID:       a948faf0-c278-4481-bd1b-c857644a4c90
+:END:
 
-*Note:* This will tell anyone on your Discord your current activity status in Emacs—with a pretty hefty amount of detail as well. [[id:8f9bc104-87a1-4fa4-b624-a5ea64210b8a][Remember: you can do this if you want to disable something.]]
+*Note:* This will tell anyone on your Discord your current activity status in Emacs—with a pretty hefty amount of detail as well. [[id:8f9bc104-87a1-4fa4-b624-a5ea64210b8a][Remember: you can do the following if you want to disable something]].
 
 #+begin_src elisp
-(elcord-mode)
+(use-package! elcord-mode
+  :defer t)
 #+end_src
 
 
@@ -943,7 +951,7 @@ You may also wish to [[id:24408296-5370-4dbf-a52f-f1afe865ceb5][disable Emacs lo
 ** common lisp snippets for yasnippets (require)
 
 #+begin_src elisp
-(use-package! 'common-lisp-snippets
+(use-package! common-lisp-snippets
   :defer t)
 #+end_src
 
