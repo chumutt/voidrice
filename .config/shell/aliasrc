@@ -69,8 +69,8 @@ alias \
 	doomc="doom clean" \
 	doomp="doom purge" \
 	doomu="doom upgrade" \
-	rosr="rlwrap ros run" \
-    	neofetch="hyfetch" \
+	rosr="rlwrap ros dynamic-space-size=8000 run" \
+    neofetch="hyfetch" \
 	musescore="mscore" \
 	ms="mscore" \
 	lgc="looking-glass-client" \
