@@ -1,8 +1,0 @@
-#+title: Todo
-#+author: chumutt
-* TODO move .config/doom to separate repo and have it get installed as a part of larbs
-* TODO +offlineimap, +A,mu, +msmtp (?)
-** TODO ~/.local/bin/+mu/lib.py
-*** TODO documentation explaining this
-** TODO ~/.config/offlineimap/config
-*** TODO documentation explaining this
