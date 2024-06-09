@@ -70,6 +70,7 @@ export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 # export QT_QPA_PLATFORMTHEME="gtk2"        # Have QT use gtk2 theme.
 # export QT_QPA_PLATFORMTHEME="gtk3"        # Have QT use gtk3 theme.
 # export QT_QPA_PLATFORMTHEME="qt5ct"        # Have QT use qt5ct theme.
+export QT_QPA_PLATFORMTHEME=qt5ct:qt6ct
 export GTK_THEME=Adwaita:dark
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 
