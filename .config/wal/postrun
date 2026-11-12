@@ -29,4 +29,4 @@ fix_sequences() {
 
 fix_sequences <"${XDG_CACHE_HOME:-$HOME/.cache}/wal/sequences"
 
-pkill dunst; setsid -f dunst
+[ -z "$WAYLAND_DISPLAY" ] && { pkill dunst; setsid -f dunst; }  # X11 only
