@@ -89,10 +89,10 @@
     "spacing": 6
   },
   "custom/notifications": {
-    "exec": "if systemctl --user is-active --quiet dunst; then n=$(dunstctl count waiting 2>/dev/null || echo 0); echo \"ntf $n\"; else echo \"ntf off\"; fi",
+    "exec": "if pidof -q mako; then n=$(makoctl list -j | jq 'length'); echo \"ntf $n\"; else echo \"ntf off\"; fi",
     "interval": 10,
-    "on-click": "dunstctl history-pop",
-    "on-click-right": "dunstctl close-all"
+    "on-click": "makoctl restore",
+    "on-click-right": "makoctl dismiss -a"
   },
   "custom/weather": {
     "exec": "curl -sf --max-time 5 'wttr.in/?format=%C+%t' || echo 'wx ?'",
