@@ -1,0 +1,71 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 26,
+  "spacing": 6,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "α",
+      "2": "β",
+      "3": "γ",
+      "4": "δ",
+      "5": "ε",
+      "6": "ζ",
+      "7": "η",
+      "8": "θ",
+      "9": "ι",
+      "10": "α",
+      "11": "β",
+      "12": "γ",
+      "13": "δ",
+      "14": "ε",
+      "15": "ζ",
+      "16": "η",
+      "17": "θ",
+      "18": "ι",
+      "19": "α",
+      "20": "β",
+      "21": "γ",
+      "22": "δ",
+      "23": "ε",
+      "24": "ζ",
+      "25": "η",
+      "26": "θ",
+      "27": "ι",
+      "28": "α",
+      "29": "β",
+      "30": "γ",
+      "31": "δ",
+      "32": "ε",
+      "33": "ζ",
+      "34": "η",
+      "35": "θ",
+      "36": "ι"
+    }
+  },
+  "hyprland/window": {
+    "max-length": 60,
+    "separate-outputs": true
+  },
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "muted",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "clock": {
+    "format": "{:%a %b %d  %H:%M}",
+    "tooltip": false
+  }
+}
